@@ -22,8 +22,24 @@ public class AppTest {
 
         // then
         System.setOut(originalOut);
+        assertThat(out.toString()).isEqualTo("== 명언 앱 ==");
+    }
 
-        String output = out.toString().trim();
-        assertThat(output).isEqualTo("== 명언 앱 ==");
+    @DisplayName("시작 시 출력2 : 명령) ")
+    @Test
+    void t2() {
+        PrintStream originalOut = System.out;
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out)); // 표준 출력 캡처
+
+        // when
+        App app = new App();
+        app.run();
+
+        // then
+        System.setOut(originalOut);
+        assertThat(out.toString()).
+                contains("== 명언 앱 ==")
+                .contains("명령) ");
     }
 }
