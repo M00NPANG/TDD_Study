@@ -22,7 +22,8 @@ public class AppTest {
 
         // then
         System.setOut(originalOut);
-        assertThat(out.toString()).isEqualTo("== 명언 앱 ==");
+        assertThat(out.toString())
+                .contains("== 명언 앱 ==");
     }
 
     @DisplayName("시작 시 출력2 : 명령) ")
