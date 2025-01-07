@@ -38,7 +38,7 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("2단계 명언 등록 : 명언 1개 등록")
     void t4() {
         // given
         String out = TestBoot.run("""
