@@ -22,9 +22,10 @@ public class AppTest {
         app.run();
 
         // then
-        System.setOut(originalOut);
-        assertThat(out.toString())
-                .contains("== 명언 앱 ==");
+        System.setOut(originalOut); // 표준 출력 복원
+        String output = out.toString();
+        System.out.println(output); // 캡처된 내용을 콘솔에 출력
+        assertThat(output).contains("== 명언 앱 ==");
     }
 
     @DisplayName("시작 시 출력2 : 명령) ")
@@ -39,9 +40,11 @@ public class AppTest {
         app.run();
 
         // then
-        System.setOut(originalOut);
-        assertThat(out.toString()).
-                containsSubsequence("== 명언 앱 ==", "명령) ");
+        System.setOut(originalOut); // 표준 출력 복원
+        String output = out.toString();
+        System.out.println(output); // 캡처된 내용을 콘솔에 출력
+        assertThat(output)
+                .containsSubsequence("== 명언 앱 ==", "명령) ");
     }
 
     @DisplayName("종료 입력 :  시스템을 종료합니다. 출력. 다만 == 명언 앱 ==과 명령) 다음에 출력되어야 한다.")
@@ -59,8 +62,10 @@ public class AppTest {
         app.run();
 
         // then
-        System.setOut(originalOut);
-        assertThat(out.toString())
+        System.setOut(originalOut); // 표준 출력 복원
+        String output = out.toString();
+        System.out.println(output); // 캡처된 내용을 콘솔에 출력
+        assertThat(output)
                 .containsSubsequence("== 명언 앱 ==", "명령) ")
                 .contains("시스템을 종료합니다.");
     }
