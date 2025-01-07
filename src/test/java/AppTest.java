@@ -9,16 +9,14 @@ public class AppTest {
     @Test
     void t1() {
         // given
-        TestBoot testBoot = new TestBoot();
-        String out = testBoot.run("종료\n");
+        String out = TestBoot.run("종료");
         assertThat(out).contains("== 명언 앱 ==");
     }
 
     @DisplayName("시작 시 출력2 : 명령) ")
     @Test
     void t2() {
-        TestBoot testBoot = new TestBoot();
-        String out = testBoot.run("종료\n");
+        String out = TestBoot.run("종료");
         assertThat(out)
                 .containsSubsequence("== 명언 앱 ==", "명령) ");
     }
@@ -27,8 +25,7 @@ public class AppTest {
     @Test
     void t3() {
         // given
-        TestBoot testBoot = new TestBoot();
-        String out = testBoot.run("종료\n");
+        String out = TestBoot.run("종료");
 
         assertThat(out)
                 .containsSubsequence("== 명언 앱 ==", "명령) ")
