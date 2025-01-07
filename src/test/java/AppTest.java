@@ -1,10 +1,6 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.Scanner;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest {
@@ -13,37 +9,17 @@ public class AppTest {
     @Test
     void t1() {
         // given
-        PrintStream originalOut = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out)); // 표준 출력 캡처
-
-        // when
-        App app = new App();
-        app.run();
-
-        // then
-        System.setOut(originalOut); // 표준 출력 복원
-        String output = out.toString();
-        System.out.println(output); // 캡처된 내용을 콘솔에 출력
-        assertThat(output).contains("== 명언 앱 ==");
+        TestBoot testBoot = new TestBoot();
+        String out = testBoot.run("종료\n");
+        assertThat(out).contains("== 명언 앱 ==");
     }
 
     @DisplayName("시작 시 출력2 : 명령) ")
     @Test
     void t2() {
-        PrintStream originalOut = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out)); // 표준 출력 캡처
-
-        // when
-        App app = new App();
-        app.run();
-
-        // then
-        System.setOut(originalOut); // 표준 출력 복원
-        String output = out.toString();
-        System.out.println(output); // 캡처된 내용을 콘솔에 출력
-        assertThat(output)
+        TestBoot testBoot = new TestBoot();
+        String out = testBoot.run("종료\n");
+        assertThat(out)
                 .containsSubsequence("== 명언 앱 ==", "명령) ");
     }
 
@@ -51,21 +27,10 @@ public class AppTest {
     @Test
     void t3() {
         // given
-        Scanner sc = new Scanner("종료\n");
+        TestBoot testBoot = new TestBoot();
+        String out = testBoot.run("종료\n");
 
-        PrintStream originalOut = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out)); // 표준 출력 캡처
-
-        // when
-        App app = new App();
-        app.run();
-
-        // then
-        System.setOut(originalOut); // 표준 출력 복원
-        String output = out.toString();
-        System.out.println(output); // 캡처된 내용을 콘솔에 출력
-        assertThat(output)
+        assertThat(out)
                 .containsSubsequence("== 명언 앱 ==", "명령) ")
                 .contains("시스템을 종료합니다.");
     }
