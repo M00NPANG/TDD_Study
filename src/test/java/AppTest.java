@@ -46,7 +46,7 @@ public class AppTest {
 
     @DisplayName("종료 입력 :  시스템을 종료합니다. 출력. 다만 == 명언 앱 ==과 명령) 다음에 출력되어야 한다.")
     @Test
-    void t() {
+    void t3() {
         // given
         Scanner sc = new Scanner("종료\n");
 
