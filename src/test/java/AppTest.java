@@ -53,6 +53,21 @@ public class AppTest {
                 .containsSubsequence("명언 : ", "작가 : ");
       }
 
+    @Test
+    @DisplayName("2단계 명언 등록 : 명언 1개 등록")
+    void t5() {
+        // given
+        String out = TestBoot.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                """);
+
+        // then
+        assertThat(out)
+                .containsSubsequence("명언 : ", "작가 : ");
+    }
+
 
 
 }

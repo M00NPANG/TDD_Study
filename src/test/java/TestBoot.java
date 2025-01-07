@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TestBoot {
     public static String run(String input) {
         // given
-        Scanner sc = new Scanner(input+ "\n");
+        Scanner sc = new Scanner(input+ "종료\n");
 
         PrintStream originalOut = System.out;
         ByteArrayOutputStream out = new ByteArrayOutputStream();
