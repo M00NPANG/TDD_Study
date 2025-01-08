@@ -83,7 +83,7 @@ public class AppTest {
 
         // then
         long commandCount = out.lines()
-                .filter(line -> line.startsWith("명령 : "))
+                .filter(line -> line.startsWith("명령) "))
                 .count();
 
         assertThat(commandCount).isEqualTo(2);
