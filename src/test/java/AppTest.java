@@ -194,7 +194,7 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("6단계. 존재하지 않는 명언삭제에 대한 예외처리 -> %d번 명언은 존재하지 않습니다.")
+    @DisplayName("7단계. 존재하지 않는 명언삭제에 대한 예외처리 -> %d번 명언은 존재하지 않습니다.")
     void t12() {
         // given
         String out = TestBoot.run("""
