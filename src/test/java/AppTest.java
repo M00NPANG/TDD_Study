@@ -8,7 +8,7 @@ public class AppTest {
     @DisplayName("1단계. 시작 시 출력 : == 명언 앱 == ")
     void t1() {
         // given
-        String out = TestBoot.run("종료");
+        String out = TestBoot.run("");
 
         // then
         assertThat(out).contains("== 명언 앱 ==");
@@ -18,7 +18,7 @@ public class AppTest {
     @DisplayName("1단계. 시작 시 출력2 : 명령) ")
     void t2() {
         // given
-        String out = TestBoot.run("종료");
+        String out = TestBoot.run("");
 
         // then
         assertThat(out)
@@ -29,7 +29,7 @@ public class AppTest {
     @DisplayName("1단계. 종료 입력 :  시스템을 종료합니다. 출력. 다만 == 명언 앱 ==과 명령) 다음에 출력되어야 한다.")
     void t3() {
         // given
-        String out = TestBoot.run("종료");
+        String out = TestBoot.run("");
 
         // then
         assertThat(out)
@@ -65,7 +65,7 @@ public class AppTest {
 
         // then
         assertThat(out)
-                .containsSubsequence("명언 : ", "작가 : ");
+                .containsSubsequence("명령) ", "명언 : ", "작가 : ");
     }
 
     @Test
@@ -86,9 +86,7 @@ public class AppTest {
                 .filter(line -> line.startsWith("명령) "))
                 .count();
 
-        assertThat(commandCount).isEqualTo(2);
+        assertThat(commandCount).isEqualTo(3);
     }
-
-
 
 }

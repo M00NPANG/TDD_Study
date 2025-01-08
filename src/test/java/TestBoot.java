@@ -1,6 +1,5 @@
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class TestBoot {
     public static String run(String input) {
@@ -12,7 +11,7 @@ public class TestBoot {
         System.setOut(new PrintStream(out)); // 표준 출력 캡처
 
         // when
-        App app = new App();
+        App app = new App(sc);
         app.run();
 
         // then
