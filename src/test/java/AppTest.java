@@ -138,4 +138,22 @@ public class AppTest {
         assertThat(out).contains("1번 명언이 등록되었습니다.");
     }
 
+    @Test
+    @DisplayName("4단계. 명언 2개 등록 시 각각 1번 명언... 2번 명언 출력")
+    void t9() {
+        // given
+        String out = TestBoot.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                등록
+                현재를 사랑하라.
+                작자미상
+                """);
+
+        // then
+        assertThat(out)
+                .containsSubsequence("1번 명언이 등록되었습니다.", "2번 명언이 등록되었습니다.");
+    }
+
 }
