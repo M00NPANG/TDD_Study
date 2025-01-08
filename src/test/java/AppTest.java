@@ -124,5 +124,18 @@ public class AppTest {
         assertThat(occurrences).isEqualTo(2); // 패턴이 2번 반복되었는지 확인
     }
 
+    @Test
+    @DisplayName("3단계. 명언 등록 시 1번 명언이 등록되었습니다. 출력")
+    void t8() {
+        // given
+        String out = TestBoot.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                """);
+
+        // then
+        assertThat(out).contains("1번 명언이 등록되었습니다.");
+    }
 
 }
