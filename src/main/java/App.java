@@ -21,6 +21,7 @@ public class App {
                     System.out.println("작가 : ");
                     String Author = sc.nextLine();
                     System.out.println("1번 명언이 등록되었습니다.");
+                    System.out.println("2번 명언이 등록되었습니다.");
                     break;
                 case "종료" :
                     System.out.println("시스템을 종료합니다.");
