@@ -1,3 +1,6 @@
+package app.domain.wiseSaying;
+
+import app.standard.TestBoot;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -5,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
-public class AppTest {
+public class WiseSayingControllerTest {
     @Test
     @DisplayName("1단계. 시작 시 출력 : == 명언 앱 == ")
     void t1() {

@@ -1,4 +1,6 @@
-import domain.wiseSayin.WiseSayingController;
+package app;
+
+import app.domain.wiseSaying.WiseSayingController;
 
 import java.util.Scanner;
 
@@ -18,13 +20,11 @@ public class App {
             System.out.println("명령) ");
             String cmd = sc.nextLine();
 
-            String[] cmdBits = cmd.split("\\?");
-            String actionName = cmdBits[0];
-
-            switch (actionName) {
+            switch (cmd) {
                 case "등록" -> wiseSayingController.actionAdd();
                 case "목록" -> wiseSayingController. actionList();
                 case "삭제" -> wiseSayingController.actionDelete(cmd);
+               //  case "수정" -> wiseSayingController.actionEdit(cmd);
                 case "종료" -> {
                     wiseSayingController.actionExit();
                     return; // 메서드 종료
