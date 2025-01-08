@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WiseSayingService {
-    //WiseSayingRepository wiseSayingRepository;
+    WiseSayingRepository wiseSayingRepository;
     List<WiseSaying> wiseSayingList = new ArrayList<>();
     int lastId;
 
     public WiseSayingService() {
-        //wiseSayingRepository = new wiseSayingRepository();
+        wiseSayingRepository = new WiseSayingRepository();
         lastId = 0;
     }
 

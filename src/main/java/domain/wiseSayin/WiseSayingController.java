@@ -40,4 +40,7 @@ public class WiseSayingController {
     }
 
 
+    public void actionDelete() {
+        System.out.println("1번 명언이 삭제되었습니다.");
+    }
 }
