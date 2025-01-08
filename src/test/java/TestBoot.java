@@ -1,18 +1,17 @@
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class TestBoot {
     public static String run(String input) {
         // given
-        Scanner sc = new Scanner(input+ "\n");
+        Scanner sc = new Scanner(input+ "종료\n");
 
         PrintStream originalOut = System.out;
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out)); // 표준 출력 캡처
 
         // when
-        App app = new App();
+        App app = new App(sc);
         app.run();
 
         // then
