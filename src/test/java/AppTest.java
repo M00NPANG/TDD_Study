@@ -174,4 +174,25 @@ public class AppTest {
                 .containsSubsequence("번호 / 작가 / 명언", "----------------------","2 / 작자미상 / 과거에 집착하지 마라.", "1 / 작자미상 / 현재를 사랑하라.");
     }
 
+    @Test
+    @DisplayName("6단계. 삭제?id=1을 입력하면 1번 명언이 삭제되었습니다. 출력")
+    void t11() {
+        // given
+        String out = TestBoot.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                등록
+                과거에 집착하지 마라.
+                작자미상
+                삭제?id=1
+                """);
+
+        // then
+        assertThat(out)
+                .contains("1번 명언이 삭제되었습니다.");
+    }
+
+
+
 }
