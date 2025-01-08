@@ -1,4 +1,4 @@
-package wiseSaying.domain;
+package domain.wiseSayin;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

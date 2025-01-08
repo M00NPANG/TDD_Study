@@ -9,10 +9,9 @@ public class AppTest {
     @Test
     @DisplayName("1단계. 시작 시 출력 : == 명언 앱 == ")
     void t1() {
-        // given
+        // 입력 데이터가 비어 있으면 종료 명령 추가
         String out = TestBoot.run("");
 
-        // then
         assertThat(out).contains("== 명언 앱 ==");
     }
 
