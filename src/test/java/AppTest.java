@@ -213,6 +213,25 @@ public class AppTest {
                 .contains("1번 명언은 존재하지 않습니다.");
     }
 
+    @Test
+    @DisplayName("8단계. 수정, 없는 id에 대한 예외처리. %d번 명언은 존재하지 않습니다.")
+    void t13() {
+        // given
+        String out = TestBoot.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                등록
+                과거에 집착하지 마라.
+                작자미상
+                수정?id=3
+                """);
+
+        // then
+        assertThat(out)
+                .contains("3번 명언은 존재하지 않습니다.");
+    }
+
 
 
 }
