@@ -1,27 +1,25 @@
 package domain.wiseSayin;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WiseSayingService {
     WiseSayingRepository wiseSayingRepository;
-    List<WiseSaying> wiseSayingList = new ArrayList<>();
-    int lastId;
+    List<WiseSaying> wiseSayingList;
 
     public WiseSayingService() {
         wiseSayingRepository = new WiseSayingRepository();
-        lastId = 0;
     }
 
     public WiseSaying write(String content, String author) {
-        lastId++;
-        WiseSaying wiseSaying = new WiseSaying(lastId,content, author);
-        wiseSayingList.add(wiseSaying);
-
+        WiseSaying wiseSaying = wiseSayingRepository.save(content, author);
         return wiseSaying;
     }
 
     public List<WiseSaying> getAllItems() {
-        return wiseSayingList;
+        return wiseSayingRepository.findAll();
+    }
+
+    public boolean delete(int id) {
+        return wiseSayingRepository.deleteById(id);
     }
 }

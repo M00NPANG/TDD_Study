@@ -16,12 +16,15 @@ public class App {
 
         while(true) {
             System.out.println("명령) ");
-            String input = sc.nextLine();
+            String cmd = sc.nextLine();
 
-            switch (input) {
+            String[] cmdBits = cmd.split("\\?");
+            String actionName = cmdBits[0];
+
+            switch (actionName) {
                 case "등록" -> wiseSayingController.actionAdd();
                 case "목록" -> wiseSayingController. actionList();
-                case "삭제?id=1" ->wiseSayingController.actionDelete();
+                case "삭제" -> wiseSayingController.actionDelete(cmd);
                 case "종료" -> {
                     wiseSayingController.actionExit();
                     return; // 메서드 종료
