@@ -58,4 +58,17 @@ public class CommandTest {
         assertThat(pram).isNull();
     }
 
+    @Test
+    @DisplayName("파라미터 여러 개 입력 받기 : 명령?key1=value&key2=value2")
+    void t6() {
+        // given
+        Command cmd = new Command("명령?key1=value1&key2=value2");
+        String pram1 = cmd.getPram("key1");
+        String pram2 = cmd.getPram("key2");
+
+        // then
+        assertThat(pram1).isEqualTo("value1");
+        assertThat(pram2).isEqualTo("value2");
+    }
+
 }
