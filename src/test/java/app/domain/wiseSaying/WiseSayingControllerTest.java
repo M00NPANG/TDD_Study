@@ -254,6 +254,28 @@ public class WiseSayingControllerTest {
                 .containsSubsequence("과거에 집착하지 마라.", "작자미상");
     }
 
+    @Test
+    @DisplayName("8단계. 새로운 데이터 받아서 저장(수정)")
+    void t15() {
+        // given
+        String out = TestBoot.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                등록
+                과거에 집착하지 마라.
+                작자미상
+                수정?id=2
+                현재와 자신을 사랑하라.
+                홍길동
+                목록
+                """);
+
+        // then
+        assertThat(out)
+                .contains("2 / 홍길동 / 현재와 자신을 사랑하라.");
+    }
+
 
 
 }
