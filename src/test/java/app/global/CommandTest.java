@@ -29,10 +29,10 @@ public class CommandTest {
         void t3() {
             // given
             Command cmd = new Command("명령?id=1");
-            String pram = cmd.getPram();
+            int pram = Integer.parseInt(cmd.getPram());
 
             // then
-            assertThat(pram).isEqualTo("1");
+            assertThat(pram).isEqualTo(1);
           }
 
 
