@@ -32,7 +32,8 @@ public class WiseSayingRepository {
                 .orElse(null);
     }
 
-    public boolean edit(String newContent, String newAuthor) {
-            return true;
+    public void edit(WiseSaying wiseSaying, String newContent, String newAuthor) {
+            wiseSaying.setContent(newContent);
+            wiseSaying.setAuthor(newAuthor);
     }
 }

@@ -11,8 +11,7 @@ public class WiseSayingService {
     }
 
     public WiseSaying write(String content, String author) {
-        WiseSaying wiseSaying = wiseSayingRepository.save(content, author);
-        return wiseSaying;
+        return wiseSayingRepository.save(content, author);
     }
 
     public List<WiseSaying> getAllItems() {
@@ -27,7 +26,7 @@ public class WiseSayingService {
         return wiseSayingRepository.deleteById(id);
     }
 
-    public boolean edit(String newContent, String newAuthor) {
-        return wiseSayingRepository.edit(newContent, newAuthor);
+    public void edit(WiseSaying wiseSaying, String newContent, String newAuthor) {
+        wiseSayingRepository.edit(wiseSaying,newContent, newAuthor);
     }
 }

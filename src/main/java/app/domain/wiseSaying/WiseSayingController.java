@@ -56,8 +56,13 @@ public class WiseSayingController {
     public void actionEdit(int id) {
         try {
             WiseSaying wiseSaying = wiseSayingService.getItems(id);
-            System.out.println(wiseSaying.getContent());
-            System.out.println(wiseSaying.getAuthor());
+
+            System.out.println("명언(기존) : " + wiseSaying.getContent());
+            String NewContent = sc.nextLine();
+            System.out.println("작가(기존) : " + wiseSaying.getAuthor());
+            String NewAuthor = sc.nextLine();
+
+            wiseSayingService.edit(wiseSaying,NewContent,NewAuthor);
         } catch (Exception e) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
         }
