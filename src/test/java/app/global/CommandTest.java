@@ -37,7 +37,7 @@ public class CommandTest {
 
 
     @Test
-    @DisplayName("불완전한 파라미터 값 입력 1")
+    @DisplayName("불완전한 파라미터 값 입력 1 : 명령?id=1=1")
     void t4() {
         // given
         Command cmd = new Command("명령?id=1=1");
@@ -45,6 +45,17 @@ public class CommandTest {
 
         // then
         assertThat(pram).isEqualTo("1=1");
+    }
+
+    @Test
+    @DisplayName("불완전한 파라미터 값 입력 2 : ")
+    void t5() {
+        // given
+        Command cmd = new Command("목록?page");
+        String pram = cmd.getPram();
+
+        // then
+        assertThat(pram).isNull();
     }
 
 }
