@@ -9,9 +9,16 @@ public class Command {
     public Command(String cmd) {
         String[] cmdBits = cmd.split("\\?");
         actionName = cmdBits[0];
-        String param = cmdBits[1];
 
+        if(cmdBits.length < 2) {
+            return;
+        }
+
+        String param = cmdBits[1];
         String[] paramBits = param.split("=", 2);
+        if(paramBits.length < 2) {
+            return;
+        }
         pramKey = paramBits[0];
         pramValue = paramBits[1];
     }
