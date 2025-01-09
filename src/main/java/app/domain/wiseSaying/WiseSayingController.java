@@ -40,18 +40,15 @@ public class WiseSayingController {
     }
 
 
-    public void actionDelete(String cmd) {
-        String param = cmd.split("\\?")[1];
-        String[] paramBits = param.split("=");
-        int id = Integer.parseInt(paramBits[1]);
-
-        boolean isDelete = wiseSayingService.delete(id);
-
-        if(isDelete) {
-            System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
-        } else {
-            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
-        }
-
-    }
+//    public void actionDelete(String cmd) {
+//
+//        boolean isDelete = wiseSayingService.delete(id);
+//
+//        if(isDelete) {
+//            System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
+//        } else {
+//            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
+//        }
+//
+//    }
 }
