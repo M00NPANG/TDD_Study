@@ -29,7 +29,7 @@ public class CommandTest {
         void t3() {
             // given
             Command cmd = new Command("명령?id=1");
-            int pram = Integer.parseInt(cmd.getPram());
+            int pram = Integer.parseInt(cmd.getPram("id"));
 
             // then
             assertThat(pram).isEqualTo(1);
@@ -41,7 +41,7 @@ public class CommandTest {
     void t4() {
         // given
         Command cmd = new Command("명령?id=1=1");
-        String pram = cmd.getPram();
+        String pram = cmd.getPram("id");
 
         // then
         assertThat(pram).isEqualTo("1=1");
@@ -52,7 +52,7 @@ public class CommandTest {
     void t5() {
         // given
         Command cmd = new Command("목록?page");
-        String pram = cmd.getPram();
+        String pram = cmd.getPram("page");
 
         // then
         assertThat(pram).isNull();
