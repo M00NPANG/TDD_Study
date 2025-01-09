@@ -6,13 +6,12 @@ public class Command {
     String pramKey;
     String pramValue;
 
-
     public Command(String cmd) {
         String[] cmdBits = cmd.split("\\?");
         actionName = cmdBits[0];
         String param = cmdBits[1];
 
-        String[] paramBits = param.split("=");
+        String[] paramBits = param.split("=", 2);
         pramKey = paramBits[0];
         pramValue = paramBits[1];
     }
@@ -22,8 +21,8 @@ public class Command {
         return  actionName;
     }
 
-    public int getPram() {
-        return Integer.parseInt(pramValue);
+    public String getPram() {
+        return pramValue;
     }
 
     // id=1 -> id |=| 1 분리하고 정수로 변환해서 반화하는 기능
