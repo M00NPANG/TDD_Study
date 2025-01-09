@@ -23,4 +23,16 @@ public class CommandTest {
           // then
           assertThat(actionName).isEqualTo("명령");
         }
+
+        @Test
+        @DisplayName("명령?id=1 을/를 입력하면 ?를 기준으로 뒤의 파라미터 값을 반환")
+        void t3() {
+            // given
+            Command cmd = new Command();
+            String pram = cmd.getPram("명령?id=1");
+
+            // then
+            assertThat(pram).isEqualTo("1");
+          }
+
 }
