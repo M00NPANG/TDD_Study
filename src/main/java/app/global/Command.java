@@ -1,10 +1,14 @@
 package app.global;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Command {
 
+    // 명령어?=id=1  -> 명령어 |?| id=1 분리해서 반환하는 기능
+    @Getter
     String actionName;
 
     Map<String, String> paramMap = new HashMap<>();
@@ -32,14 +36,18 @@ public class Command {
 
     }
 
-    // 명령어?=id=1  -> 명령어 |?| id=1 분리해서 반환하는 기능
-    public String getActionName() {
-        return  actionName;
-    }
-
     public String getPram(String key) {
         return paramMap.get(key);
     }
 
-    // id=1 -> id |=| 1 분리하고 정수로 변환해서 반화하는 기능
+
+
+    public int getParamToInt(String key) {
+       try {
+           String strId = paramMap.get(key);
+           return Integer.parseInt(strId);
+       } catch (NumberFormatException e) {
+           return 0;
+       }
+    }
 }

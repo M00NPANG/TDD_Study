@@ -35,7 +35,6 @@ public class CommandTest {
             assertThat(pram).isEqualTo(1);
           }
 
-
     @Test
     @DisplayName("불완전한 파라미터 값 입력 1 : 명령?id=1=1")
     void t4() {
@@ -70,5 +69,6 @@ public class CommandTest {
         assertThat(pram1).isEqualTo("value1");
         assertThat(pram2).isEqualTo("value2");
     }
+
 
 }

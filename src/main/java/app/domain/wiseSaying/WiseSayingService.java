@@ -22,4 +22,9 @@ public class WiseSayingService {
     public boolean delete(int id) {
         return wiseSayingRepository.deleteById(id);
     }
+
+    public boolean edit(int id) {
+
+        return false;
+    }
 }

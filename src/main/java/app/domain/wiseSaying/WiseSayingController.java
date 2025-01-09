@@ -1,5 +1,7 @@
 package app.domain.wiseSaying;
 
+import app.global.Command;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,6 +9,7 @@ public class WiseSayingController {
 
     private final Scanner sc;
     WiseSayingService wiseSayingService;
+    Command command;
 
     public WiseSayingController(Scanner sc) {
         this.sc = sc;
@@ -40,15 +43,23 @@ public class WiseSayingController {
     }
 
 
-//    public void actionDelete(String cmd) {
-//
-//        boolean isDelete = wiseSayingService.delete(id);
-//
-//        if(isDelete) {
-//            System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
-//        } else {
-//            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
-//        }
-//
-//    }
+    public void actionDelete(int id) {
+        boolean isDelete = wiseSayingService.delete(id);
+
+        if(isDelete) {
+            System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
+        } else {
+            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
+        }
+    }
+
+    public void actionEdit(int id) {
+        boolean isDelete = wiseSayingService.edit(id);
+
+        if(isDelete) {
+            System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
+        } else {
+            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
+        }
+    }
 }

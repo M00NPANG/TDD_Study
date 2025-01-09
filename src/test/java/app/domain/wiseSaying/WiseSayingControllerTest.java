@@ -235,6 +235,17 @@ public class WiseSayingControllerTest {
                 .contains("3번 명언은 존재하지 않습니다.");
     }
 
+    @Test
+    @DisplayName("8단계. id 검사 후 존재하지 않는 명언 예외처리 ")
+    void t14() {
+        // given
+
+
+        // when
+
+        // then
+    }
+
 
 
 }

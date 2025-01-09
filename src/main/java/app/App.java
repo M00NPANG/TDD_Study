@@ -1,6 +1,7 @@
 package app;
 
 import app.domain.wiseSaying.WiseSayingController;
+import app.global.Command;
 
 import java.util.Scanner;
 
@@ -18,21 +19,22 @@ public class App {
 
         while(true) {
             System.out.println("명령) ");
-//            String cmd = command.getActionName(sc.nextLine());
-//
-//
-//            switch (cmd) {
-//                case "등록" -> wiseSayingController.actionAdd();
-//                case "목록" -> wiseSayingController. actionList();
-//                case "삭제" -> wiseSayingController.actionDelete(cmd);
-//               //  case "수정" -> wiseSayingController.actionEdit(cmd);
-//                case "종료" -> {
-//                    wiseSayingController.actionExit();
-//                    return; // 메서드 종료
-//                }
-//
-//                default -> System.out.println("알 수 없는 명령입니다.");
-//            }
+            Command command = new Command(sc.nextLine());
+            String actionName = command.getActionName();
+            int id = command.getParamToInt("id");
+
+            switch (actionName) {
+                case "등록" -> wiseSayingController.actionAdd();
+                case "목록" -> wiseSayingController. actionList();
+                case "삭제" -> wiseSayingController.actionDelete(id);
+                case "수정" -> wiseSayingController.actionEdit(id);
+                case "종료" -> {
+                    wiseSayingController.actionExit();
+                    return; // 메서드 종료
+                }
+
+                default -> System.out.println("알 수 없는 명령입니다.");
+            }
         }
 
     }
