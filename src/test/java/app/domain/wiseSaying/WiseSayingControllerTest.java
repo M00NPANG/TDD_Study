@@ -236,14 +236,22 @@ public class WiseSayingControllerTest {
     }
 
     @Test
-    @DisplayName("8단계. id 검사 후 존재하지 않는 명언 예외처리 ")
+    @DisplayName("8단계. 수정?id=2 입력 시 해당 id를 가진 데이터 출력")
     void t14() {
         // given
-
-
-        // when
+        String out = TestBoot.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                등록
+                과거에 집착하지 마라.
+                작자미상
+                수정?id=2
+                """);
 
         // then
+        assertThat(out)
+                .containsSubsequence("과거에 집착하지 마라.", "작자미상");
     }
 
 
