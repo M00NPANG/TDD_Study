@@ -19,12 +19,15 @@ public class WiseSayingService {
         return wiseSayingRepository.findAll();
     }
 
+    public WiseSaying getItems(int id) {
+        return wiseSayingRepository.findById(id);
+    }
+
     public boolean delete(int id) {
         return wiseSayingRepository.deleteById(id);
     }
 
-    public boolean edit(int id) {
-
-        return false;
+    public boolean edit(String newContent, String newAuthor) {
+        return wiseSayingRepository.edit(newContent, newAuthor);
     }
 }

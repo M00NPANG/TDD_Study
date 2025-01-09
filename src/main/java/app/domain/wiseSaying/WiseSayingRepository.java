@@ -24,4 +24,15 @@ public class WiseSayingRepository {
     public boolean deleteById(int id) {
         return wiseSayingList.removeIf(w -> w.getId() == id);
     }
+
+    public WiseSaying findById(int id) {
+        return wiseSayingList.stream()
+                .filter(w -> w.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public boolean edit(String newContent, String newAuthor) {
+            return true;
+    }
 }

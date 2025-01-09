@@ -54,11 +54,11 @@ public class WiseSayingController {
     }
 
     public void actionEdit(int id) {
-        boolean isDelete = wiseSayingService.edit(id);
-
-        if(isDelete) {
-            System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
-        } else {
+        try {
+            WiseSaying wiseSaying = wiseSayingService.getItems(id);
+            System.out.println(wiseSaying.getContent());
+            System.out.println(wiseSaying.getAuthor());
+        } catch (Exception e) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
         }
     }
